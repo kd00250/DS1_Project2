@@ -41,7 +41,7 @@ public class MondrianArt extends Application {
             Group group = new Group();
             group.getChildren().add(canvas);
             Scene scene = new Scene(new BorderPane(group), WIDTH, HEIGHT);
-            primaryStage.setTitle("Mondrian Art by CS3151");
+            primaryStage.setTitle("Mondrian Art by Kenneth Dearman");
             primaryStage.setScene(scene);
             primaryStage.show();
 
@@ -65,7 +65,7 @@ public class MondrianArt extends Application {
         context.setFill(Color.YELLOW);
         context.fillRect(300, 300, 300, 300);
 
-        context.setStroke(Color.ORANGE);
+        context.setStroke(Color.BLACK);
         context.setLineWidth(4);
         context.strokeLine(298, 0, 298, 600);
 
