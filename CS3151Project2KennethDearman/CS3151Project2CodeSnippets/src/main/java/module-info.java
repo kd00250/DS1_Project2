@@ -5,4 +5,5 @@ module edu.westga.dsdm.mondrianart {
 
     opens edu.westga.dsdm.mondrianart to javafx.fxml;
     exports edu.westga.dsdm.mondrianart;
+    opens edu.westga.dsdm.mondrianart.view to javafx.fxml;
 }

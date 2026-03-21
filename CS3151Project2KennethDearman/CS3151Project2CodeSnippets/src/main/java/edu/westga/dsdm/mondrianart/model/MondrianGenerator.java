@@ -12,6 +12,7 @@ import java.util.Random;
 public class MondrianGenerator {
     private static final int LINE_SIZE = 4;
     private static final int NUMBER_OF_REGIONS_SPLIT = 2;
+    private static final int CANVAS_SIZE = 600;
     private Random random;
 
     /**
@@ -30,12 +31,18 @@ public class MondrianGenerator {
     public List<Region> generateRegions(int minLength) {
         List<Region> regions = new ArrayList<>();
 
-        Region startRegion = new Region(0, 0, 600, 600, null);
+        Region startRegion = new Region(0, 0, CANVAS_SIZE, CANVAS_SIZE, null);
         this.splitRegion(startRegion, minLength, regions);
         return regions;
     }
 
-    public void splitRegion(Region region, int minLength, List<Region> regions) {
+    /**
+     * splits the regions randomly either horizontally or vertically and continues to split until unable to continue.
+     * @param region the region to split
+     * @param minLength the min length to set as a floor boundary
+     * @param regions the list of regions to add too
+     */
+    private void splitRegion(Region region, int minLength, List<Region> regions) {
         boolean canSplitHorizontally = region.height() > (2 * minLength + 4);
         boolean canSplitVertically = region.width() > (2 * minLength + 4);
 
@@ -43,6 +50,7 @@ public class MondrianGenerator {
             Color color = this.generateColor();
             Region baseRegion = new Region(region.x(), region.y(), region.width(), region.height(), color);
             regions.add(baseRegion);
+            return;
         }
 
         int split = this.random.nextInt(3);

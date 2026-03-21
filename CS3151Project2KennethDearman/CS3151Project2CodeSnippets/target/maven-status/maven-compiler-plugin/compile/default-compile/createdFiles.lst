@@ -1,4 +1,9 @@
-edu\westga\dsdm\mondrianart\util\DemoDialog.class
-edu\westga\dsdm\mondrianart\MondrianArt.class
+edu\westga\dsdm\mondrianart\model\MondrianGenerator.class
 edu\westga\dsdm\mondrianart\Launcher.class
 module-info.class
+edu\westga\dsdm\mondrianart\view\SettingsCodeBehind.class
+edu\westga\dsdm\mondrianart\util\DemoDialog.class
+edu\westga\dsdm\mondrianart\view\MondrianArtView.class
+edu\westga\dsdm\mondrianart\MondrianArt.class
+edu\westga\dsdm\mondrianart\model\Region.class
+edu\westga\dsdm\mondrianart\viewmodel\SettingsViewModel.class
