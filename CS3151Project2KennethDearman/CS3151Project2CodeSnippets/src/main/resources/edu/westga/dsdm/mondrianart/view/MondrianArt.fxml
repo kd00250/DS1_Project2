@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.BorderPane?>
 
 
-<Canvas fx:id="artCanvas" height="600.0" width="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.dsdm.mondrianart.view.SettingsCodeBehind" />
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.dsdm.mondrianart.view.MondrianArtCodeBehind">
+   <center>
+      <Canvas fx:id="artCanvas" height="600.0" width="600.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

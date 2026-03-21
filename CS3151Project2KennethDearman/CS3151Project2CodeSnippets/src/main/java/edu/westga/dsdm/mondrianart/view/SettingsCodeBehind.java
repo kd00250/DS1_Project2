@@ -25,7 +25,7 @@ public class SettingsCodeBehind {
     private TextField lengthTextField;
 
     private SettingsViewModel vm;
-    private MondrianArtView artView;
+    private MondrianArtCodeBehind artView;
 
     @FXML
     void generateArt(ActionEvent event) {
@@ -42,29 +42,26 @@ public class SettingsCodeBehind {
 
     private void showArtView() {
         try {
-            // Load the art view FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MondrianArt.fxml"));
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("MondrianArt.fxml")
+            );
             Parent root = loader.load();
 
-            // Get the controller for art view
-            this.artView = loader.getController();
+            MondrianArtCodeBehind artController = loader.getController();
+            artController.setViewModel(this.vm);
 
-            // Pass the regions to draw
-            this.artView.drawRegions(this.vm.getRegions());
-
-            // Create and show new window
             Stage artStage = new Stage();
-            //artStage.setTitle("Mondrian Art");
+            artStage.setTitle("Mondrian Art");
             artStage.setScene(new Scene(root));
             artStage.show();
 
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Could not load art view: " + e.getMessage());
-            e.printStackTrace();
             alert.showAndWait();
         }
     }
+
 
     private void setUpControls() {
         this.generateArtButton.disableProperty().bind(this.lengthTextField.textProperty().isEmpty());
@@ -82,7 +79,7 @@ public class SettingsCodeBehind {
     @FXML
     void initialize() {
         this.vm = new SettingsViewModel();
-        this.artView = new MondrianArtView();
+        this.artView = new MondrianArtCodeBehind();
         this.setUpControls();
         this.setUpListeners();
 
